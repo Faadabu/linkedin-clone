@@ -7,8 +7,18 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter'
 import ChatIcon from '@mui/icons-material/Chat'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 import HeaderOption from './HeaderOption';
+import { useDispatch } from 'react-redux'
+import { auth } from './firebase'
+import { logout } from './features/userSlice'
 
 function Header() {
+  const dispatch = useDispatch()
+
+  const appLogout = () => {
+    dispatch(logout())
+    auth.signOut()
+  }
+   
   return (
     <div className="header">
         <div className="header__left">
@@ -18,7 +28,7 @@ function Header() {
             
             <div className="header__search">
                 <SearchIcon />
-                <input type="text" />
+                <input type="text" placeholder='Search...'/>
             </div>
         </div>
         <div className="header__right">
@@ -27,7 +37,7 @@ function Header() {
           <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
           <HeaderOption Icon={ChatIcon} title="Messaging" />
           <HeaderOption Icon={NotificationsIcon} title="Notifications" />
-          <HeaderOption avatar="https://www.dmarge.com/wp-content/uploads/2022/04/elon-buys-twitter.jpg" title="Me" />
+          <HeaderOption avatar={true} title="Me" onClick={appLogout} />
         </div>
     </div>
   )
