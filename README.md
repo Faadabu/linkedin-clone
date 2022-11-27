@@ -54,4 +54,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 ## Live server
-[a link](https://linkedin-clone-eb330.web.app/)
+[Linkedin Clone](https://linkedin-clone-eb330.web.app/)
